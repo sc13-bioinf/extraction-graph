@@ -1,0 +1,13 @@
+{
+	"name": "extraction-graph",
+	"version": "0.0.1",
+	"main": "./lib/extraction-graph.js",
+	"private": true,
+	"dependencies": {
+		"node-neo4j" : "1.0.x"
+	},
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/sc13-bioinf/extraction-graph"
+	}
+}
