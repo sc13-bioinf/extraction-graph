@@ -4,7 +4,7 @@
 	"main": "./lib/extraction-graph.js",
 	"private": true,
 	"dependencies": {
-		"node-neo4j" : "1.0.x"
+		"node-neo4j" : "0.2.x"
 	},
 	"repository": {
 		"type": "git",
