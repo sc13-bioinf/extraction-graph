@@ -4,6 +4,7 @@
 	"main": "./lib/extraction-graph.js",
 	"private": true,
 	"dependencies": {
+		"json-ptr": "0.1.x", 
 		"neo4j" : "0.2.x"
 	},
 	"repository": {
