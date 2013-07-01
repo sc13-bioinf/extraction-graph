@@ -5,7 +5,9 @@
 	"private": true,
 	"dependencies": {
 		"json-ptr": "0.1.x", 
-		"neo4j" : "0.2.x"
+		"neo4j" : "0.2.x",
+		"sprintf": "0.1.x",
+		"underscore": "1.4.x"
 	},
 	"repository": {
 		"type": "git",
