@@ -6,7 +6,7 @@
 	"dependencies": {
 		"json-ptr": "0.1.x", 
 		"neo4j" : "0.2.x",
-		"sprintf": "0.1.x",
+		"sprintf": "0.1.1",
 		"underscore": "1.4.x",
 		"async": ">=0.2.9"
 	},
