@@ -1,0 +1,58 @@
+#!/usr/bin/env perl
+
+use strict;
+use JSON qw(from_json to_json);
+use Getopt::Long;
+
+my $k;
+my $p;
+
+GetOptions ( 'k' => \$k, 'p=s' => \$p );
+
+my $js = do { local $/; <STDIN> };
+my $data = from_json $js;
+
+
+my @path = split /\./, $p;
+
+for my $key (@path)
+{
+	if ( ref($data) eq 'ARRAY' )
+	{
+		die "Index out of bounds array size is " . scalar(@{$data}) . " at key '$key'\n" unless (scalar($key) >= 0 && scalar($key) < scalar(@{$data}) );
+		$data = $data->[$key];
+	}
+	else
+	{
+		die "Path not found in object at key '$key'\n" unless exists ($data->{$key});
+		$data = $data->{$key};
+	}
+}
+if ( ref ($data) ne '' )
+{
+	if ( $k )
+	{
+		if ( ref($data) eq 'HASH' )
+		{
+			for my $k (keys %{$data})
+			{
+				print "$k\n";
+			}
+			print "\nkeys found at $p\n";
+		}
+		if ( ref($data) eq 'ARRAY' )
+		{
+			print "0 to " . scalar(@{$data}) . "\n\nfound at $p\n"; 
+		}
+	}
+	else
+	{
+		my $json = to_json $data, {utf8 => 1, pretty => 1};
+		print "$json\n\nfound at $p\n";
+	}
+}
+else
+{
+	print "$data\n\nfound at $p\n";
+}
+
